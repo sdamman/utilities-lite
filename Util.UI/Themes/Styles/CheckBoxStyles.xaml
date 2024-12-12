@@ -1,0 +1,291 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:theme="clr-namespace:ALMACO.UI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d">
+
+  <ControlTemplate x:Key="CheckBoxTemplate" TargetType="{x:Type CheckBox}">
+    <Grid
+            x:Name="templateRoot"
+            Background="Transparent"
+            SnapsToDevicePixels="True">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Border x:Name="checkBoxBorder"
+              Margin="1"
+              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}">
+        <Grid x:Name="markGrid">
+          <Canvas>
+
+            <Path Name="optionMark"
+                  Canvas.Top="-5"
+                  Data="m 0.93998065 14.754025 c 0.0914658 -0.03412 0.17835805 -0.09249 0.27439775 -0.102384 0.7704137 -0.07938 1.4309386 0.69942 1.8912741 1.269279 0.9218024 1.317456 1.4385805 2.880292 1.9046948 4.448535 0.5019908 1.918138 0.9726368 3.852529 1.6514945 5.704595 1.2489836 2.671404 2.1351413 0.6829 4.6503152 -1.002351 0.803631 -1.706211 1.46159 -3.488572 2.191599 -5.234346 1.217378 -2.87651 2.941235 -5.406923 4.750868 -7.844196 1.976288 -2.6586681 4.432412 -4.7491379 6.996585 -6.647092 0.342524 -0.2434737 2.30394 -1.6395002 2.667533 -1.890894 0.407167 -0.281519 1.651094 -1.0837256 1.229547 -0.8298994 -0.626425 0.3771906 -1.243657 0.7747858 -1.844683 1.200292 -0.301014 0.2131088 0.628926 -0.3748021 0.943389 -0.5622039 0 0 2.740145 -2.45733288 2.740145 -2.45733288 v 0 C 27.929343 2.6140078 24.967888 4.6149637 22.075708 6.7329245 19.516081 8.6674331 17.063245 10.7789 15.112446 13.485149 c -1.820314 2.494339 -3.573744 5.068856 -4.823653 7.984842 -0.2962594 0.696704 -0.5473282 1.277609 -0.8299187 1.978512 -0.3524944 0.874284 -0.6749574 1.783619 -1.1410652 2.594607 -0.116124 0.202037 -0.2608567 0.381759 -0.391285 0.572641 0.9623735 -0.582556 1.913483 -1.188877 2.8871189 -1.747669 0.06502 -0.03732 -0.08175 0.15142 -0.151061 0.177392 -0.05944 0.02229 -0.126415 -0.02054 -0.182166 -0.0525 C 10.160752 24.809247 9.9822069 24.427596 9.8096621 24.09982 9.0610543 22.295582 8.5744833 20.381761 8.1181907 18.464253 7.6554395 16.835755 7.1345329 15.213722 6.2061951 13.83203 5.5859606 13.028746 4.8268143 12.228941 3.8212308 12.18358 c 0 0 -2.88125015 2.570446 -2.88125015 2.570445 z"
+                  Fill="{TemplateBinding BorderBrush}"
+                  Opacity="0"
+                  Stroke="{TemplateBinding BorderBrush}"
+                  StrokeEndLineCap="Round"
+                  StrokeLineJoin="Round"
+                  StrokeMiterLimit="4"
+                  StrokeStartLineCap="Round"
+                  StrokeThickness="0.774169" />
+          </Canvas>
+          <Rectangle x:Name="indeterminateMark"
+                     Width="15"
+                     Height="15"
+                     Margin="3"
+                     Fill="{TemplateBinding Foreground}"
+                     Opacity="0" />
+        </Grid>
+      </Border>
+      <ContentPresenter x:Name="contentPresenter"
+                Grid.Column="1"
+                Margin="10,5,0,0"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Focusable="False"
+                RecognizesAccessKey="True"
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+    </Grid>
+    <ControlTemplate.Triggers>
+      <Trigger Property="HasContent" Value="true">
+        <Setter Property="Padding" Value="4,-1,0,0" />
+      </Trigger>
+      <Trigger Property="IsMouseOver" Value="true">
+        <Setter TargetName="checkBoxBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverBackground}" />
+        <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverBorder}" />
+        <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverForeground}" />
+        <Setter TargetName="indeterminateMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverForeground}" />
+      </Trigger>
+      <Trigger Property="IsEnabled" Value="false">
+        <Setter TargetName="checkBoxBorder" Property="Opacity" Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
+        <Setter TargetName="checkBoxBorder" Property="Opacity" Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
+        <Setter TargetName="optionMark" Property="Opacity" Value="0" />
+        <Setter TargetName="indeterminateMark" Property="Opacity" Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
+      </Trigger>
+      <Trigger Property="IsPressed" Value="true">
+        <Setter TargetName="checkBoxBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
+        <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBorder}" />
+        <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedForeground}" />
+        <Setter TargetName="indeterminateMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedForeground}" />
+      </Trigger>
+      <Trigger Property="IsChecked" Value="true">
+        <Setter TargetName="optionMark" Property="Opacity" Value="1" />
+        <Setter TargetName="indeterminateMark" Property="Opacity" Value="0" />
+      </Trigger>
+      <Trigger Property="IsChecked" Value="{x:Null}">
+        <Setter TargetName="optionMark" Property="Opacity" Value="0" />
+        <Setter TargetName="indeterminateMark" Property="Opacity" Value="1" />
+      </Trigger>
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
+
+
+  <ControlTemplate x:Key="SortBoxTemplate" TargetType="{x:Type CheckBox}">
+    <Border x:Name="checkBoxBorder"
+              Margin="1"
+              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+              Background="{theme:ThemeResource ResourceKey=TransparentBackground}">
+      <StackPanel Orientation="Horizontal">
+        <ContentPresenter x:Name="contentPresenter"
+                          Margin="2,0"
+                          Style="{StaticResource sortableHeading}"
+                          VerticalAlignment="Center"
+                          Focusable="False"
+                          RecognizesAccessKey="True"
+                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        <Viewbox x:Name="markGrid"
+                 Width="20"
+                 Stretch="Uniform">
+          <Canvas Width="40" Height="40">
+            <Path Name="ascArrow"
+                  Data="M 7,25.339746 12,34 M 17,25.339746 12,34 M 12,6 v 28"
+                  Stroke="{TemplateBinding Foreground}"
+                  StrokeEndLineCap="Round"
+                  StrokeLineJoin="Round"
+                  StrokeStartLineCap="Round"
+                  StrokeThickness="4" />
+            <Path x:Name="descArrow"
+                  Data="M 23,14.660254 28,6 M 33,14.660254 28,6 m 0,28 V 6"
+                  Stroke="{TemplateBinding Foreground}"
+                  StrokeEndLineCap="Round"
+                  StrokeLineJoin="Round"
+                  StrokeStartLineCap="Round"
+                  StrokeThickness="4" />
+          </Canvas>
+        </Viewbox>
+      </StackPanel>
+    </Border>
+    <ControlTemplate.Triggers>
+      <Trigger Property="HasContent" Value="true">
+        <Setter Property="Padding" Value="4,-1,0,0" />
+      </Trigger>
+      <Trigger Property="IsMouseOver" Value="true">
+        <Setter TargetName="checkBoxBorder" Property="BorderBrush" 
+                Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverBorder}" />
+        <Setter TargetName="ascArrow" Property="Stroke" 
+                Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
+        <Setter TargetName="descArrow" Property="Stroke" 
+                Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
+      </Trigger>
+      <Trigger Property="IsEnabled" Value="false">
+        <Setter TargetName="checkBoxBorder" Property="Opacity" 
+                Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
+        <Setter TargetName="checkBoxBorder" Property="Opacity" 
+                Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
+        <Setter TargetName="ascArrow" Property="Opacity" Value="0.4" />
+        <Setter TargetName="descArrow" Property="Opacity" Value="0.4" />
+      </Trigger>
+      <Trigger Property="IsPressed" Value="true">
+        <Setter TargetName="checkBoxBorder" Property="BorderBrush" 
+                Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBorder}" />
+        <Setter TargetName="ascArrow" Property="Stroke" 
+                Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
+        <Setter TargetName="descArrow" Property="Stroke" 
+                Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
+      </Trigger>
+      <Trigger Property="IsChecked" Value="true">
+        <Setter TargetName="ascArrow" Property="Opacity" Value="1" />
+        <Setter TargetName="descArrow" Property="Opacity" Value="0" />
+      </Trigger>
+      <Trigger Property="IsChecked" Value="false">
+        <Setter TargetName="ascArrow" Property="Opacity" Value="0" />
+        <Setter TargetName="descArrow" Property="Opacity" Value="1" />
+      </Trigger>
+      <Trigger Property="IsChecked" Value="{x:Null}">
+        <Setter TargetName="ascArrow" Property="Opacity" Value="0.4" />
+        <Setter TargetName="descArrow" Property="Opacity" Value="0.4" />
+      </Trigger>
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
+
+
+  <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+    <Setter Property="FontFamily" Value="Segoe UI Semibold" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxBackground}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=CheckBoxIcon}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=CheckBoxForeground}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="Template" Value="{DynamicResource CheckBoxTemplate}" />
+  </Style>
+
+
+  <Style x:Key="SortableHeaderCheck" TargetType="{x:Type CheckBox}">
+    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxBackground}" />
+    <Setter Property="BorderBrush" Value="{x:Null}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=CheckBoxIcon}" />
+    <Setter Property="Template" Value="{DynamicResource SortBoxTemplate}" />
+    <Setter Property="IsThreeState" Value="True"/>
+  </Style>
+
+
+  <Style x:Key="CheckBoxSmall" TargetType="{x:Type CheckBox}">
+    <Setter Property="FontFamily" Value="Segoe UI Semibold" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Background" 
+            Value="{theme:ThemeResource ResourceKey=MinContrast}" />
+    <Setter Property="BorderBrush" 
+            Value="{theme:ThemeResource ResourceKey=ComplementColor}" />
+    <Setter Property="Foreground" 
+            Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type CheckBox}">
+          <Grid
+            x:Name="templateRoot"
+            Background="Transparent"
+            SnapsToDevicePixels="True">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border x:Name="checkBoxBorder"
+              Margin="1"
+              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}">
+              <Grid>
+                <Path x:Name="optionMark"
+                      Data="m1,3 l2,-2 l5,5 l5,-5 l2,2 l-5,5 
+                            l5,5 l-2,2 l-5,-5 l-5,5 l-2,-2 l5,-5z"
+                      Fill="{TemplateBinding BorderBrush}"
+                      d:Fill="{StaticResource brushCombineBlue}"
+                      Opacity="0"/>
+                <Rectangle x:Name="indeterminateMark"
+                           Width="12"
+                           Height="12"
+                           Margin="2"
+                           Fill="{theme:ThemeResource ResourceKey=ComplementColor}"
+                           Opacity="0" />
+              </Grid>
+            </Border>
+            <ContentPresenter x:Name="contentPresenter"
+                Grid.Column="1"
+                Margin="5"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Focusable="False"
+                RecognizesAccessKey="True"
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="HasContent" Value="true">
+              <Setter Property="Padding" Value="4,-1,0,0" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+              <Setter TargetName="checkBoxBorder" Property="Background" 
+                      Value="{theme:ThemeResource ResourceKey=Highlight}" />
+              <Setter TargetName="checkBoxBorder" Property="BorderBrush" 
+                      Value="{theme:ThemeResource ResourceKey=BoldHighlight}" />
+              <Setter TargetName="optionMark" Property="Fill" 
+                      Value="{theme:ThemeResource ResourceKey=MutedContrast}" />
+              <Setter TargetName="indeterminateMark" Property="Fill" 
+                      Value="{theme:ThemeResource ResourceKey=MutedContrast}" />
+            </Trigger>
+            <!--<Trigger Property="IsPressed" Value="true">
+              <Setter TargetName="checkBoxBorder" Property="Background" 
+                      Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
+              <Setter TargetName="checkBoxBorder" Property="BorderBrush" 
+                      Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBorder}" />
+              <Setter TargetName="optionMark" Property="Fill" 
+                      Value="{theme:ThemeResource ResourceKey=CheckBoxPressedForeground}" />
+              <Setter TargetName="indeterminateMark" Property="Fill" 
+                      Value="{theme:ThemeResource ResourceKey=CheckBoxPressedForeground}" />
+            </Trigger>-->
+            <Trigger Property="IsEnabled" Value="false">
+              <Setter TargetName="templateRoot" Property="Opacity" 
+                      Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="true">
+              <Setter TargetName="optionMark" Property="Opacity" Value="1" />
+              <Setter TargetName="indeterminateMark" Property="Opacity" Value="0" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="{x:Null}">
+              <Setter TargetName="optionMark" Property="Opacity" Value="0" />
+              <Setter TargetName="indeterminateMark" Property="Opacity" Value="1" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+
+</ResourceDictionary>

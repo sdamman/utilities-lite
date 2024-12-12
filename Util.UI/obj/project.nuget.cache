@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/2zVSCfesaA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\StewartDa\\Desktop\\GitRepos\\Utilities-Lite\\Util.UI\\Util.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\StewartDa\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512"
+  ],
+  "logs": []
+}

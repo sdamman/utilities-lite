@@ -1,0 +1,44 @@
+﻿<Window x:Class="Util.UI.Windows.WndMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Util.UI.Windows"
+        Style="{DynamicResource WindowStyleEnglish}"
+        mc:Ignorable="d"
+        Title="Main Window" Height="450" Width="800">
+  
+  <Grid>
+    <Grid.Resources>
+      <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource bodyCopy}">
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Padding" Value="4,0"/>
+      </Style>
+      <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxStyle}">
+        <Setter Property="MinWidth" Value="100"/>
+      </Style>
+      <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BlueButtonStyle}">
+      </Style>
+    </Grid.Resources>
+    <StackPanel>
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Text="{Binding OriginalFile}"
+                   MinWidth="300"/>
+        <Button Content="..." 
+                Click="Click_SelectFile"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,10">
+        <TextBlock Text="Line break after:"/>
+        <TextBox Text="{Binding EndText}"/>
+      </StackPanel>
+      <Button Content="Break Lines" HorizontalAlignment="Left" 
+              Command="{Binding BreakLinesCommand}"/>
+      <ScrollViewer VerticalScrollBarVisibility="Auto"
+                    MaxHeight="300"
+                    Margin="20">
+        <TextBlock Text="{Binding FileContentsNew}"
+                   TextWrapping="Wrap"/>
+      </ScrollViewer>
+    </StackPanel>
+  </Grid>
+</Window>

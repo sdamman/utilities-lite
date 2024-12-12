@@ -1,0 +1,74 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:theme="clr-namespace:ALMACO.UI">
+
+
+  <ControlTemplate x:Key="GroupBoxTemplate" TargetType="{x:Type GroupBox}">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Border
+        x:Name="PART_Border"
+        Grid.Row="0"
+        Grid.RowSpan="3"
+        IsHitTestVisible="False" />
+      <Border
+        x:Name="Header"
+        Grid.Row="0"
+        Padding="0,0,0,4"
+        BorderBrush="{TemplateBinding BorderBrush}"
+        BorderThickness="{TemplateBinding BorderThickness}">
+        <ContentPresenter
+          ContentSource="Header"
+          RecognizesAccessKey="True"
+          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+          TextBlock.FontFamily="Segoe UI Semibold"
+          TextBlock.FontSize="17"
+          TextBlock.FontWeight="Regular"
+          TextBlock.Foreground="{TemplateBinding Foreground}" />
+      </Border>
+      <ContentPresenter
+        Grid.Row="2"
+        Margin="{TemplateBinding Padding}"
+        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+    </Grid>
+    <ControlTemplate.Triggers>
+      <Trigger Property="IsEnabled" Value="False">
+        <Setter Property="Opacity" Value="0.4" />
+      </Trigger>
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
+
+  <Style x:Key="GroupBoxStyle" TargetType="{x:Type GroupBox}">
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=GroupBoxFont}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=GroupBoxTopBar}" />
+    <Setter Property="SnapsToDevicePixels" Value="False" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Padding" Value="8,16,8,8" />
+    <Setter Property="Template" Value="{StaticResource GroupBoxTemplate}" />
+  </Style>
+
+  <Style x:Key="GroupBoxBoldStyle" TargetType="{x:Type GroupBox}">
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=GroupBoxBoldFont}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=GroupBoxBoldTopBar}" />
+    <Setter Property="SnapsToDevicePixels" Value="False" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Padding" Value="8,16,8,8" />
+    <Setter Property="Template" Value="{StaticResource GroupBoxTemplate}" />
+  </Style>
+
+  <Style x:Key="GroupBoxFunContrastStyle" TargetType="{x:Type GroupBox}">
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=GroupBoxFunContrastFont}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=GroupBoxFunContrastTopBar}" />
+    <Setter Property="SnapsToDevicePixels" Value="False" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Padding" Value="8,16,8,8" />
+    <Setter Property="Template" Value="{StaticResource GroupBoxTemplate}" />
+  </Style>
+
+  <Style BasedOn="{StaticResource GroupBoxStyle}" TargetType="{x:Type GroupBox}" />
+
+</ResourceDictionary>
