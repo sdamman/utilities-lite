@@ -18,17 +18,5 @@ namespace Util.UI.Windows
     }
 
 
-    private void Click_SelectFile(object sender, RoutedEventArgs e)
-    {
-      var dialog = new OpenFileDialog
-      {
-        DefaultDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-        DefaultExt = ".txt",
-        Filter = "text files (.txt)|*.txt"
-      };
-      bool? result = dialog.ShowDialog();
-      if (result == true)
-        vmm.GetFile(dialog.FileName);
-    }
   }
 }

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Util.UI;
 using System.Windows;
 using System.Windows.Media;
-using Util.UI;
 
 namespace ALMACO.UI
 {
@@ -71,6 +70,7 @@ namespace ALMACO.UI
       SetResource(ThemeResourceKey.Temperature4.ToString(), "brushTemperature4");
       SetResource(ThemeResourceKey.Temperature5.ToString(), "brushTemperature5");
 
+      SetResource(ThemeResourceKey.TransparentBackground.ToString(), "brushTransparentHit");
       SetResource(ThemeResourceKey.ControlDisabledOpacity.ToString(), "Opacity", 0.4d);
 
       // ##################################################
@@ -78,129 +78,48 @@ namespace ALMACO.UI
       // -- whether the theme is light or dark.
       // ##################################################
 
+
       switch (type)
       {
         case ThemeType.Light:
           {
             SetResource(ThemeResourceKey.MinContrast.ToString(), "brushWhite");
             SetResource(ThemeResourceKey.MaxContrast.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.BackgroundColor.ToString(), "brushDark20");
+            SetResource(ThemeResourceKey.Foreground.ToString(), "brushDark100");
+            SetResource(ThemeResourceKey.Background.ToString(), "brushDark20");
             SetResource(ThemeResourceKey.MutedContrast.ToString(), "brushDark80");
             SetResource(ThemeResourceKey.Highlight.ToString(), "brushDark40");
             SetResource(ThemeResourceKey.MutedHighlight.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.ComplementColor.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.DayDeepBlueNightGrey.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.DayLightBlueNightGrey.ToString(), "brushUranianBlue");
+            SetResource(ThemeResourceKey.Complement.ToString(), "brushCombineBlue");
             SetResource(ThemeResourceKey.BoldHighlight.ToString(), "brushDarkBlue");
-            SetResource(ThemeResourceKey.MutedAccent.ToString(), "brushUranianBlue");
             SetResource(ThemeResourceKey.BoldCombo.ToString(), "brushBlack");
+            SetResource(ThemeResourceKey.MutedAccent.ToString(), "brushUranianBlue");
             SetResource(ThemeResourceKey.ToastBackground.ToString(), "brushUranianBlue80t");
-            SetResource(ThemeResourceKey.TransparentBackground.ToString(), "brushTransparentHit");
-
             SetResource(ThemeResourceKey.Logo.ToString(), "brushCombineBlue");
 
-            SetResource(ThemeResourceKey.ComboBoxForeground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.ComboBoxBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ComboBoxBorder.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.ComboBoxMouseOverForeground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.ComboBoxMouseOverBackground.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.ComboBoxMouseOverBorder.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.ComboBoxPressedForeground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.ComboBoxPressedBackground.ToString(), "brushDarkMid");
-            SetResource(ThemeResourceKey.ComboBoxPressedBorder.ToString(), "brushCombineBlue");
-
-            SetResource(ThemeResourceKey.ComboBoxSelectedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.ComboBoxSelectedBackground.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxForeground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.EditableComboBoxBorder.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.EditableComboBoxMouseOverForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.EditableComboBoxMouseOverBackground.ToString(), "brushDarkMid");
-            SetResource(ThemeResourceKey.EditableComboBoxMouseOverBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxPressedBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxPressedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.EditableComboBoxPressedBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.EditableComboBoxSelectedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.EditableComboBoxSelectedBackground.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxHighlight.ToString(), "brushCombineBlue");
-
-            SetResource(ThemeResourceKey.GroupBoxFont.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.GroupBoxTopBar.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.GroupBoxFunContrastFont.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.GroupBoxFunContrastTopBar.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.GroupBoxBoldFont.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.GroupBoxBoldTopBar.ToString(), "brushDarkBlue");
-
-            SetResource(ThemeResourceKey.CheckBoxForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.CheckBoxBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.CheckBoxIcon.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.CheckBoxBorder.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.CheckBoxMouseOverForeground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.CheckBoxMouseOverBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.CheckBoxMouseOverBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.CheckBoxPressedForeground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.CheckBoxPressedBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.CheckBoxPressedBorder.ToString(), "brushDark40");
-
-            SetResource(ThemeResourceKey.ListViewForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.ListViewBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ListViewBorder.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.ListViewMouseOverForeground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.ListViewMouseOverBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.ListViewMouseOverBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.ListViewPressedForeground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.ListViewPressedBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.ListViewPressedBorder.ToString(), "brushDark40");
-
-            SetResource(ThemeResourceKey.Heading1.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.Heading2.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.Heading3.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.Link.ToString(), "brushDarkBlue");
-
-            SetResource(ThemeResourceKey.TextBoxBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.TextboxForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.TextBoxBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.TextBoxMouseOverBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.TextboxMouseOverForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.TextBoxMouseOverBorder.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.TextBoxPressedBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.TextboxPressedForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.TextBoxPressedBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.TextBoxHighlight.ToString(), "brushCombineBlue");
+            SetResource(ThemeResourceKey.ContentForeground.ToString(), "brushDark100");
+            SetResource(ThemeResourceKey.ContentBackground.ToString(), "brushDark20");
+            SetResource(ThemeResourceKey.ContentBorder.ToString(), "brushCombineBlue");
+            SetResource(ThemeResourceKey.MouseOverForeground.ToString(), "brushCombineBlue");
+            SetResource(ThemeResourceKey.MouseOverBackground.ToString(), "brushDark40");
+            SetResource(ThemeResourceKey.MouseOverBorder.ToString(), "brushDarkBlue");
+            SetResource(ThemeResourceKey.PressedForeground.ToString(), "brushDark20");
+            SetResource(ThemeResourceKey.PressedBackground.ToString(), "brushDarkMid");
+            SetResource(ThemeResourceKey.PressedBorder.ToString(), "brushDark80");
+            SetResource(ThemeResourceKey.SelectedForeground.ToString(), "brushBlack");
+            SetResource(ThemeResourceKey.SelectedBackground.ToString(), "brushUranianBlue");
+            SetResource(ThemeResourceKey.SelectedBorder.ToString(), "brushDarkBlue");
+            SetResource(ThemeResourceKey.ActiveBackground.ToString(), "brushWhite");
+            SetResource(ThemeResourceKey.DisabledForeground.ToString(), "brushDark60");
 
             SetResource(ThemeResourceKey.WindowBackground.ToString(), "brushDark20");
             SetResource(ThemeResourceKey.WindowHeaderBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.WindowHeaderForeground.ToString(), "brushDark80");
+            SetResource(ThemeResourceKey.WindowHeaderForeground.ToString(), "brushDark100");
             SetResource(ThemeResourceKey.WindowHeaderMouseOverBackground.ToString(), "brushDarkMid");
             SetResource(ThemeResourceKey.WindowHeaderMouseOverForeground.ToString(), "brushBlack");
 
-            SetResource(ThemeResourceKey.ContentForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.ContentBackground.ToString(), "brushWhite");
-
-            SetResource(ThemeResourceKey.TabItemStaticBorder.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.TabItemStaticForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.TabItemStaticBackground.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.TabItemContentBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.TabItemMouseOverBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.TabItemMouseOverBackground.ToString(), "brushEggshell");
-            SetResource(ThemeResourceKey.TabItemSelectedBorder.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.TabItemSelectedBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.TabItemDisabledBorder.ToString(), "brushDarkMid");
-            SetResource(ThemeResourceKey.TabItemDisabledForeground.ToString(), "brushDark60");
-            SetResource(ThemeResourceKey.TabItemDisabledBackground.ToString(), "brushDarkMid");
-
             SetResource(ThemeResourceKey.IconForeground.ToString(), "brushBlack");
             SetResource(ThemeResourceKey.IconPressed.ToString(), "brushCombineBlue");
-
-            SetResource(ThemeResourceKey.RadioButtonForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.RadioButtonBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.RadioButtonBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.RadioButtonPressedForeground.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.RadioButtonPressedBackground.ToString(), "brushDarkMid");
-            SetResource(ThemeResourceKey.RadioButtonPressedBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.RadioButtonMouseOverForeground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.RadioButtonMouseOverBackground.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.RadioButtonMouseOverBorder.ToString(), "brushDarkMid");
 
             SetResource(ThemeResourceKey.BasicGreyButtonForeground.ToString(), "brushBlack");
             SetResource(ThemeResourceKey.BasicGreyButtonBackground.ToString(), "brushDark40");
@@ -238,88 +157,32 @@ namespace ALMACO.UI
           {
             SetResource(ThemeResourceKey.MinContrast.ToString(), "brushBlack");
             SetResource(ThemeResourceKey.MaxContrast.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.BackgroundColor.ToString(), "brushDark80");
+            SetResource(ThemeResourceKey.Foreground.ToString(), "brushDark20");
+            SetResource(ThemeResourceKey.Background.ToString(), "brushDark60");
             SetResource(ThemeResourceKey.MutedContrast.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.Highlight.ToString(), "brushDark100");
+            SetResource(ThemeResourceKey.Highlight.ToString(), "brushDark80");
             SetResource(ThemeResourceKey.MutedHighlight.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.ComplementColor.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.DayDeepBlueNightGrey.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.DayLightBlueNightGrey.ToString(), "brushWhite");
+            SetResource(ThemeResourceKey.Complement.ToString(), "brushUranianBlue");
             SetResource(ThemeResourceKey.BoldHighlight.ToString(), "brushMoisture5");
-            SetResource(ThemeResourceKey.MutedAccent.ToString(), "brushCombineBlue");
             SetResource(ThemeResourceKey.BoldCombo.ToString(), "brushDarkBlue");
+            SetResource(ThemeResourceKey.MutedAccent.ToString(), "brushCombineBlue");
             SetResource(ThemeResourceKey.ToastBackground.ToString(), "brushCombineBlue80t");
-            SetResource(ThemeResourceKey.TransparentBackground.ToString(), "brushTransparentHit");
-
             SetResource(ThemeResourceKey.Logo.ToString(), "brushWhite");
 
-            SetResource(ThemeResourceKey.ComboBoxForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ComboBoxBackground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.ComboBoxBorder.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ComboBoxMouseOverForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ComboBoxMouseOverBackground.ToString(), "brushDarkBlue");
-            SetResource(ThemeResourceKey.ComboBoxMouseOverBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.ComboBoxPressedForeground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.ComboBoxPressedBackground.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.ComboBoxPressedBorder.ToString(), "brushCombineBlue");
-
-            SetResource(ThemeResourceKey.ComboBoxSelectedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.ComboBoxSelectedBackground.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.EditableComboBoxBackground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxMouseOverForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.EditableComboBoxMouseOverBackground.ToString(), "brushDarkMid");
-            SetResource(ThemeResourceKey.EditableComboBoxMouseOverBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxPressedBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxPressedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.EditableComboBoxPressedBackground.ToString(), "brushDarkBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxSelectedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.EditableComboBoxSelectedBackground.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.EditableComboBoxHighlight.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.GroupBoxFont.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.GroupBoxTopBar.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.GroupBoxFunContrastFont.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.GroupBoxFunContrastTopBar.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.GroupBoxBoldFont.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.GroupBoxBoldTopBar.ToString(), "brushDarkBlue");
-
-            SetResource(ThemeResourceKey.CheckBoxForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.CheckBoxBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.CheckBoxIcon.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.CheckBoxBorder.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.CheckBoxMouseOverForeground.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.CheckBoxMouseOverBackground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.CheckBoxMouseOverBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.CheckBoxPressedForeground.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.CheckBoxPressedBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.CheckBoxPressedBorder.ToString(), "brushDark100");
-
-            SetResource(ThemeResourceKey.ListViewForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ListViewBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.ListViewBorder.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.ListViewMouseOverForeground.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.ListViewMouseOverBackground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.ListViewMouseOverBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.ListViewPressedForeground.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.ListViewPressedBackground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ListViewPressedBorder.ToString(), "brushDark100");
-
-            SetResource(ThemeResourceKey.Heading1.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.Heading2.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.Heading3.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.Link.ToString(), "brushDarkBlue");
-
-            SetResource(ThemeResourceKey.TextBoxBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.TextboxForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.TextBoxBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.TextBoxMouseOverBackground.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.TextboxMouseOverForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.TextBoxMouseOverBorder.ToString(), "brushDark20");
-            SetResource(ThemeResourceKey.TextBoxPressedBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.TextboxPressedForeground.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.TextBoxPressedBorder.ToString(), "brushBlack");
-            SetResource(ThemeResourceKey.TextBoxHighlight.ToString(), "brushUranianBlue");
+            SetResource(ThemeResourceKey.ContentForeground.ToString(), "brushWhite");
+            SetResource(ThemeResourceKey.ContentBackground.ToString(), "brushDark100");
+            SetResource(ThemeResourceKey.ContentBorder.ToString(), "brushUranianBlue");
+            SetResource(ThemeResourceKey.MouseOverForeground.ToString(), "brushUranianBlue");
+            SetResource(ThemeResourceKey.MouseOverBackground.ToString(), "brushDark60");
+            SetResource(ThemeResourceKey.MouseOverBorder.ToString(), "brushDark80");
+            SetResource(ThemeResourceKey.PressedForeground.ToString(), "brushDarkMid");
+            SetResource(ThemeResourceKey.PressedBackground.ToString(), "brushDark20");
+            SetResource(ThemeResourceKey.PressedBorder.ToString(), "brushDark40");
+            SetResource(ThemeResourceKey.SelectedForeground.ToString(), "brushWhite");
+            SetResource(ThemeResourceKey.SelectedBackground.ToString(), "brushCombineBlue");
+            SetResource(ThemeResourceKey.SelectedBorder.ToString(), "brushDarkBlue");
+            SetResource(ThemeResourceKey.ActiveBackground.ToString(), "brushDarkBlue");
+            SetResource(ThemeResourceKey.DisabledForeground.ToString(), "brushDark50");
 
             SetResource(ThemeResourceKey.WindowBackground.ToString(), "brushDark100");
             SetResource(ThemeResourceKey.WindowHeaderBackground.ToString(), "brushDarkBlue");
@@ -327,33 +190,8 @@ namespace ALMACO.UI
             SetResource(ThemeResourceKey.WindowHeaderMouseOverBackground.ToString(), "brushDark100");
             SetResource(ThemeResourceKey.WindowHeaderMouseOverForeground.ToString(), "brushWhite");
 
-            SetResource(ThemeResourceKey.ContentForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.ContentBackground.ToString(), "brushDark80");
-
-            SetResource(ThemeResourceKey.TabItemStaticBorder.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.TabItemStaticForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.TabItemStaticBackground.ToString(), "brushDark60");
-            SetResource(ThemeResourceKey.TabItemContentBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.TabItemMouseOverBorder.ToString(), "brushDarkBlue");
-            SetResource(ThemeResourceKey.TabItemMouseOverBackground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.TabItemSelectedBorder.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.TabItemSelectedBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.TabItemDisabledBorder.ToString(), "brushDarkMid");
-            SetResource(ThemeResourceKey.TabItemDisabledForeground.ToString(), "brushDark50");
-            SetResource(ThemeResourceKey.TabItemDisabledBackground.ToString(), "brushDarkMid");
-
             SetResource(ThemeResourceKey.IconForeground.ToString(), "brushWhite");
             SetResource(ThemeResourceKey.IconPressed.ToString(), "brushUranianBlue");
-
-            SetResource(ThemeResourceKey.RadioButtonForeground.ToString(), "brushWhite");
-            SetResource(ThemeResourceKey.RadioButtonBackground.ToString(), "brushDark80");
-            SetResource(ThemeResourceKey.RadioButtonBorder.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.RadioButtonPressedForeground.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.RadioButtonPressedBackground.ToString(), "brushDark40");
-            SetResource(ThemeResourceKey.RadioButtonPressedBorder.ToString(), "brushCombineBlue");
-            SetResource(ThemeResourceKey.RadioButtonMouseOverForeground.ToString(), "brushUranianBlue");
-            SetResource(ThemeResourceKey.RadioButtonMouseOverBackground.ToString(), "brushDark100");
-            SetResource(ThemeResourceKey.RadioButtonMouseOverBorder.ToString(), "brushWhite");
 
             SetResource(ThemeResourceKey.BasicGreyButtonForeground.ToString(), "brushWhite");
             SetResource(ThemeResourceKey.BasicGreyButtonBackground.ToString(), "brushDark100");

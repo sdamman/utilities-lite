@@ -4,11 +4,11 @@
     xmlns:theme="clr-namespace:ALMACO.UI">
 
   <ControlTemplate x:Key="TextBoxTemplate" TargetType="{x:Type TextBox}">
-    <Border
-            x:Name="border"
+    <Border x:Name="border"
             Background="{TemplateBinding Background}"
             BorderBrush="{TemplateBinding BorderBrush}"
             BorderThickness="{TemplateBinding BorderThickness}"
+            CornerRadius="3"
             SnapsToDevicePixels="True">
       <ScrollViewer
                 x:Name="PART_ContentHost"
@@ -21,20 +21,24 @@
         <Setter TargetName="border" Property="Opacity" Value="0.4" />
       </Trigger>
       <Trigger Property="IsMouseOver" Value="true">
-        <Setter TargetName="border" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=TextBoxMouseOverBorder}" />
+        <Setter TargetName="border" Property="BorderBrush" 
+                Value="{theme:ThemeResource ResourceKey=MouseOverBorder}" />
       </Trigger>
       <Trigger Property="IsKeyboardFocused" Value="true">
-        <Setter TargetName="border" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=TextBoxPressedBorder}" />
+        <Setter TargetName="border" Property="BorderBrush" 
+                Value="{theme:ThemeResource ResourceKey=PressedBorder}" />
+        <Setter TargetName="border" Property="Background" 
+                Value="{theme:ThemeResource ResourceKey=ActiveBackground}"/>
       </Trigger>
     </ControlTemplate.Triggers>
 
   </ControlTemplate>
 
   <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
-    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=TextBoxBackground}" />
-    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=TextBoxBorder}" />
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=TextboxForeground}" />
-    <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=TextBoxHighlight}" />
+    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ContentBorder}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
+    <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=Highlight}" />
     <Setter Property="FontFamily" Value="Segoe UI Semibold" />
     <Setter Property="FontWeight" Value="Medium" />
     <Setter Property="FontSize" Value="14" />
@@ -55,17 +59,26 @@
           <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true" />
           <Condition Property="IsSelectionActive" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=TextBoxHighlight}" />
+        <Setter Property="SelectionBrush" Value="{theme:ThemeResource 
+          ResourceKey=SelectedBackground}" />
+      </MultiTrigger>
+      <MultiTrigger>
+        <MultiTrigger.Conditions>
+          <Condition Property="IsInactiveSelectionHighlightEnabled" Value="false" />
+          <Condition Property="IsSelectionActive" Value="true" />
+        </MultiTrigger.Conditions>
+        <Setter Property="SelectionBrush" Value="{theme:ThemeResource 
+          ResourceKey=MaxContrast}" />
       </MultiTrigger>
     </Style.Triggers>
   </Style>
 
 
   <Style x:Key="TextBoxTechnical" TargetType="{x:Type TextBox}">
-    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=TextBoxBackground}" />
-    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=TextBoxBorder}" />
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=TextboxForeground}" />
-    <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=TextBoxHighlight}" />
+    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ContentBorder}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
+    <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=Highlight}" />
     <Setter Property="FontFamily" Value="Segoe UI Semibold" />
     <Setter Property="FontWeight" Value="Medium" />
     <Setter Property="FontSize" Value="16" />
@@ -91,7 +104,8 @@
           <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true" />
           <Condition Property="IsSelectionActive" Value="false" />
         </MultiTrigger.Conditions>
-        <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=TextBoxHighlight}" />
+        <Setter Property="SelectionBrush" 
+                Value="{theme:ThemeResource ResourceKey=SelectedBackground}" />
       </MultiTrigger>
     </Style.Triggers>
   </Style>
@@ -99,7 +113,7 @@
   <Style x:Key="TextBoxReadOnly" TargetType="{x:Type TextBox}">
     <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=WindowBackground}" />
     <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
-    <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=TextBoxHighlight}" />
+    <Setter Property="SelectionBrush" Value="{theme:ThemeResource ResourceKey=Highlight}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="FontFamily" Value="Segoe UI Semibold" />
     <Setter Property="FontWeight" Value="Medium" />

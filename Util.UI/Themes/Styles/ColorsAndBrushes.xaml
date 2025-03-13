@@ -23,7 +23,7 @@
   <Color x:Key="colorWarningAmber" A="#FF" R="#FF" G="#B8" B="#00"/>
   <Color x:Key="colorGoodBlue" A="#FF" R="#00" G="#6E" B="#D0"/>
 
-  <Color x:Key="colorTestWeight1" A="#FF" R="#FF" G="#E6" B="#00"/>
+  <Color x:Key="colorTestWeight1" A="#FF" R="#FF" G="#E2" B="#00"/>
   <Color x:Key="colorTestWeight2" A="#FF" R="#FF" G="#EA" B="#29"/>
   <Color x:Key="colorTestWeight3" A="#FF" R="#FF" G="#F0" B="#64"/>
   <Color x:Key="colorTestWeight4" A="#FF" R="#FF" G="#F4" B="#8D"/>
@@ -45,7 +45,7 @@
   <Color x:Key="colorTemperature2" A="#FF" R="#DF" G="#94" B="#3B"/>
   <Color x:Key="colorTemperature3" A="#FF" R="#E4" G="#A6" B="#5E"/>
   <Color x:Key="colorTemperature4" A="#FF" R="#E9" G="#BA" B="#8C"/>
-  <Color x:Key="colorTemperature5" A="#FF" R="#EF" G="#D1" B="#D0"/>
+  <Color x:Key="colorTemperature5" A="#FF" R="#F0" G="#D1" B="#B2"/>
 
 
 

@@ -5,19 +5,6 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d">
 
-  <Style x:Key="FocusVisual">
-    <Setter Property="Control.Template">
-      <Setter.Value>
-        <ControlTemplate>
-          <Rectangle Margin="2" StrokeDashArray="1 2" 
-                     Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
-                     SnapsToDevicePixels="true" 
-                     StrokeThickness="1"/>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
-
   <Style x:Key="RepeatButtonTransparent" TargetType="{x:Type RepeatButton}">
     <Setter Property="OverridesDefaultStyle" Value="true"/>
     <Setter Property="Background" Value="Transparent"/>
@@ -34,26 +21,32 @@
     </Setter>
   </Style>
 
-  <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
-    <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+  <Style x:Key="BaseRepeatButton" TargetType="{x:Type Border}">
+    <Setter Property="Background" 
+            Value="{theme:ThemeResource ResourceKey=DisabledForeground}"/>
+    <Setter Property="BorderBrush" 
+            Value="{theme:ThemeResource ResourceKey=DisabledForeground}"/>
     <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+  </Style>
+
+  <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
     <Setter Property="Padding" Value="1"/>
     <Setter Property="Focusable" Value="false"/>
     <Setter Property="IsTabStop" Value="false"/>
+  </Style>
+
+
+  <Style x:Key="ScrollBarButtonTop" TargetType="{x:Type RepeatButton}"
+         BasedOn="{StaticResource ScrollBarButton}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type RepeatButton}">
-          <Border x:Name="border" 
-                  Background="{theme:ThemeResource ResourceKey=MutedAccent}" 
-                  d:Background="{StaticResource brushCombineBlue}"
-                  BorderBrush="{theme:ThemeResource ResourceKey=MutedAccent}" 
-                  d:BorderBrush="{StaticResource brushCombineBlue}"
-                  BorderThickness="1" SnapsToDevicePixels="true">
-            <ContentPresenter x:Name="contentPresenter" 
-                              Focusable="False" 
-                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+          <Border x:Name="border" Style="{StaticResource BaseRepeatButton}"
+                  CornerRadius="3,3,0,0">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                               Margin="{TemplateBinding Padding}" 
                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -61,25 +54,115 @@
           <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
               <Setter Property="Background" TargetName="border" 
-                      Value="{theme:ThemeResource ResourceKey=BoldCombo}"/>
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
               <Setter Property="BorderBrush" TargetName="border" 
-                      Value="{theme:ThemeResource ResourceKey=BoldCombo}"/>
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="true">
               <Setter Property="Background" TargetName="border" 
-                      Value="{theme:ThemeResource ResourceKey=MutedAccent}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
               <Setter Property="BorderBrush" TargetName="border" 
-                      Value="{theme:ThemeResource ResourceKey=MutedAccent}"/>
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="false">
-              <Setter Property="Opacity" TargetName="border" 
-                      Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
+
+  <Style x:Key="ScrollBarButtonBottom" TargetType="{x:Type RepeatButton}"
+         BasedOn="{StaticResource ScrollBarButton}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type RepeatButton}">
+          <Border x:Name="border" Style="{StaticResource BaseRepeatButton}"
+                  CornerRadius="0,0,3,3">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                              Margin="{TemplateBinding Padding}" 
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+              <Setter Property="Background" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
+              <Setter Property="BorderBrush" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+              <Setter Property="Background" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
+              <Setter Property="BorderBrush" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="ScrollBarButtonLeft" TargetType="{x:Type RepeatButton}"
+         BasedOn="{StaticResource ScrollBarButton}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type RepeatButton}">
+          <Border x:Name="border" Style="{StaticResource BaseRepeatButton}"
+                  CornerRadius="3,0,0,3">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                              Margin="{TemplateBinding Padding}" 
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+              <Setter Property="Background" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
+              <Setter Property="BorderBrush" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+              <Setter Property="Background" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
+              <Setter Property="BorderBrush" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="ScrollBarButtonRight" TargetType="{x:Type RepeatButton}"
+         BasedOn="{StaticResource ScrollBarButton}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type RepeatButton}">
+          <Border x:Name="border" Style="{StaticResource BaseRepeatButton}"
+                  CornerRadius="0,3,3,0">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                              Margin="{TemplateBinding Padding}" 
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+              <Setter Property="Background" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
+              <Setter Property="BorderBrush" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=MouseOverBackground}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+              <Setter Property="Background" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
+              <Setter Property="BorderBrush" TargetName="border" 
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
 
   <Style x:Key="ScrollBarThumbVertical" TargetType="{x:Type Thumb}">
     <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -88,7 +171,8 @@
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type Thumb}">
           <Rectangle x:Name="rectangle" 
-                     Fill="{theme:ThemeResource ResourceKey=BoldCombo}"
+                     Fill="{theme:ThemeResource ResourceKey=DisabledForeground}"
+                     RadiusX="2" RadiusY="2"
                      d:Fill="{StaticResource brushDarkBlue}"
                      Height="{TemplateBinding Height}" 
                      SnapsToDevicePixels="True" 
@@ -97,12 +181,12 @@
             <Trigger Property="IsMouseOver" Value="true">
               <Setter Property="Fill" 
                       TargetName="rectangle" 
-                      Value="{theme:ThemeResource ResourceKey=MutedAccent}"/>
+                      Value="{theme:ThemeResource ResourceKey=MutedContrast}"/>
             </Trigger>
             <Trigger Property="IsDragging" Value="true">
               <Setter Property="Fill" 
                       TargetName="rectangle" 
-                      Value="{theme:ThemeResource ResourceKey=MutedAccent}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -117,7 +201,8 @@
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type Thumb}">
           <Rectangle x:Name="rectangle" 
-                     Fill="{theme:ThemeResource ResourceKey=BoldCombo}"
+                     Fill="{theme:ThemeResource ResourceKey=DisabledForeground}"
+                     RadiusX="2" RadiusY="2"
                      d:Fill="{StaticResource brushDarkBlue}"
                      SnapsToDevicePixels="True" 
                      Width="{TemplateBinding Width}"/>
@@ -125,12 +210,12 @@
             <Trigger Property="IsMouseOver" Value="true">
               <Setter Property="Fill" 
                       TargetName="rectangle" 
-                      Value="{theme:ThemeResource ResourceKey=MutedAccent}"/>
+                      Value="{theme:ThemeResource ResourceKey=MutedContrast}"/>
             </Trigger>
             <Trigger Property="IsDragging" Value="true">
               <Setter Property="Fill" 
                       TargetName="rectangle" 
-                      Value="{theme:ThemeResource ResourceKey=MutedAccent}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedBackground}"/>
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -143,11 +228,11 @@
     <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
     <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
     <Setter Property="Background" 
-            Value="{theme:ThemeResource ResourceKey=MutedContrast}"/>
+            Value="{theme:ThemeResource ResourceKey=Highlight}"/>
     <Setter Property="BorderBrush" 
-            Value="{theme:ThemeResource ResourceKey=MutedContrast}"/>
+            Value="{theme:ThemeResource ResourceKey=Highlight}"/>
     <Setter Property="Foreground" 
-            Value="{theme:ThemeResource ResourceKey=MutedContrast}"/>
+            Value="{theme:ThemeResource ResourceKey=ContentForeground}"/>
     <Setter Property="BorderThickness" Value="1,0"/>
     <!--<Setter Property="Width" Value="17"/>-->
     <Setter Property="Width" 
@@ -170,10 +255,10 @@
             <RepeatButton x:Name="PART_LineUpButton" 
                           Command="{x:Static ScrollBar.LineUpCommand}" 
                           IsEnabled="{TemplateBinding IsMouseOver}" 
-                          Style="{StaticResource ScrollBarButton}">
+                          Style="{StaticResource ScrollBarButtonTop}">
               <Path x:Name="ArrowTop" 
                     Data="m1,15 l2,2 l4.5,-4.5 l4.5,4.5 l2,-2 l-6.5,-6.5z" 
-                    Fill="{theme:ThemeResource ResourceKey=MaxContrast}"
+                    Fill="{theme:ThemeResource ResourceKey=MinContrast}"
                     d:Fill="White"
                     Stretch="Uniform"/>
             </RepeatButton>
@@ -196,10 +281,10 @@
                           Command="{x:Static ScrollBar.LineDownCommand}" 
                           IsEnabled="{TemplateBinding IsMouseOver}" 
                           Grid.Row="2" 
-                          Style="{StaticResource ScrollBarButton}">
+                          Style="{StaticResource ScrollBarButtonBottom}">
               <Path x:Name="ArrowBottom" 
                     Data="m1,2 l2,-2 l4.5,4.5 l4.5,-4.5 l2,2 l-6.5,6.5z" 
-                    Fill="{theme:ThemeResource ResourceKey=MaxContrast}" 
+                    Fill="{theme:ThemeResource ResourceKey=MinContrast}" 
                      d:Fill="White"
                     Stretch="Uniform"/>
             </RepeatButton>
@@ -214,7 +299,7 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Fill" 
                       TargetName="ArrowBottom" 
-                      Value="{theme:ThemeResource ResourceKey=MinContrast}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
             </MultiDataTrigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
@@ -225,7 +310,7 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Fill" 
                       TargetName="ArrowTop" 
-                      Value="{theme:ThemeResource ResourceKey=MinContrast}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
             </MultiDataTrigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
@@ -236,7 +321,7 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Fill" 
                       TargetName="ArrowBottom" 
-                      Value="{theme:ThemeResource ResourceKey=MaxContrast}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
             </MultiDataTrigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
@@ -247,7 +332,7 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Fill" 
                       TargetName="ArrowTop" 
-                      Value="{theme:ThemeResource ResourceKey=MaxContrast}"/>
+                      Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
             </MultiDataTrigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -278,10 +363,10 @@
                 <RepeatButton x:Name="PART_LineLeftButton" 
                               Command="{x:Static ScrollBar.LineLeftCommand}" 
                               IsEnabled="{TemplateBinding IsMouseOver}" 
-                              Style="{StaticResource ScrollBarButton}">
+                              Style="{StaticResource ScrollBarButtonLeft}">
                   <Path x:Name="ArrowLeft" 
                         Data="m15,1 l2,2 l-4.5,4.5 l4.5,4.5 l-2,2 l-6.5,-6.5z" 
-                        Fill="{theme:ThemeResource ResourceKey=MaxContrast}" 
+                        Fill="{theme:ThemeResource ResourceKey=MinContrast}" 
                         d:Fill="White"
                         Stretch="Uniform"/>
                 </RepeatButton>
@@ -304,10 +389,10 @@
                               Command="{x:Static ScrollBar.LineRightCommand}" 
                               Grid.Column="2" 
                               IsEnabled="{TemplateBinding IsMouseOver}" 
-                              Style="{StaticResource ScrollBarButton}">
+                              Style="{StaticResource ScrollBarButtonRight}">
                   <Path x:Name="ArrowRight" 
                         Data="m4,1 l-2,2 l4.5,4.5 l-4.5,4.5 l2,2 l6.5,-6.5z" 
-                        Fill="{theme:ThemeResource ResourceKey=MaxContrast}" 
+                        Fill="{theme:ThemeResource ResourceKey=MinContrast}" 
                         d:Fill="White"
                         Stretch="Uniform"/>
                 </RepeatButton>
@@ -322,7 +407,7 @@
                   </MultiDataTrigger.Conditions>
                   <Setter Property="Fill" 
                           TargetName="ArrowRight" 
-                          Value="{theme:ThemeResource ResourceKey=MaxContrast}"/>
+                          Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
                 </MultiDataTrigger>
                 <MultiDataTrigger>
                   <MultiDataTrigger.Conditions>
@@ -333,7 +418,7 @@
                   </MultiDataTrigger.Conditions>
                   <Setter Property="Fill" 
                           TargetName="ArrowLeft" 
-                          Value="{theme:ThemeResource ResourceKey=MaxContrast}"/>
+                          Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
                 </MultiDataTrigger>
                 <MultiDataTrigger>
                   <MultiDataTrigger.Conditions>
@@ -344,7 +429,7 @@
                   </MultiDataTrigger.Conditions>
                   <Setter Property="Fill" 
                           TargetName="ArrowRight" 
-                          Value="{theme:ThemeResource ResourceKey=MinContrast}"/>
+                          Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
                 </MultiDataTrigger>
                 <MultiDataTrigger>
                   <MultiDataTrigger.Conditions>
@@ -355,7 +440,7 @@
                   </MultiDataTrigger.Conditions>
                   <Setter Property="Fill" 
                           TargetName="ArrowLeft" 
-                          Value="{theme:ThemeResource ResourceKey=MinContrast}"/>
+                          Value="{theme:ThemeResource ResourceKey=PressedForeground}"/>
                 </MultiDataTrigger>
               </ControlTemplate.Triggers>
             </ControlTemplate>
@@ -370,7 +455,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ScrollViewer}">
-          <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+          <Grid x:Name="Grid">
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="*"/>
               <ColumnDefinition Width="Auto"/>
@@ -379,10 +464,6 @@
               <RowDefinition Height="*"/>
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Rectangle x:Name="Corner" 
-                       Grid.Column="1" 
-                       Fill="{theme:ThemeResource ResourceKey=ComplementColor}" 
-                       Grid.Row="1"/>
             <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" 
                                     CanHorizontallyScroll="False" 
                                     ContentTemplate="{TemplateBinding ContentTemplate}" 
@@ -415,11 +496,5 @@
         </ControlTemplate>
       </Setter.Value>
     </Setter>
-    <Style.Triggers>
-      <Trigger Property="IsEnabled" Value="false">
-        <Setter Property="Opacity" 
-                Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}"/>
-      </Trigger>
-    </Style.Triggers>
   </Style>
 </ResourceDictionary>

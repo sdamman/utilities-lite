@@ -60,10 +60,10 @@
         <Setter Property="Padding" Value="4,-1,0,0" />
       </Trigger>
       <Trigger Property="IsMouseOver" Value="true">
-        <Setter TargetName="checkBoxBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverBackground}" />
-        <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverBorder}" />
-        <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverForeground}" />
-        <Setter TargetName="indeterminateMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverForeground}" />
+        <Setter TargetName="checkBoxBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=MouseOverBackground}" />
+        <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=MouseOverBorder}" />
+        <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=MouseOverForeground}" />
+        <Setter TargetName="indeterminateMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=MouseOverForeground}" />
       </Trigger>
       <Trigger Property="IsEnabled" Value="false">
         <Setter TargetName="checkBoxBorder" Property="Opacity" Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
@@ -72,10 +72,10 @@
         <Setter TargetName="indeterminateMark" Property="Opacity" Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
       </Trigger>
       <Trigger Property="IsPressed" Value="true">
-        <Setter TargetName="checkBoxBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
-        <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBorder}" />
-        <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedForeground}" />
-        <Setter TargetName="indeterminateMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=CheckBoxPressedForeground}" />
+        <Setter TargetName="checkBoxBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=PressedBackground}" />
+        <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=PressedBorder}" />
+        <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=PressedForeground}" />
+        <Setter TargetName="indeterminateMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=PressedForeground}" />
       </Trigger>
       <Trigger Property="IsChecked" Value="true">
         <Setter TargetName="optionMark" Property="Opacity" Value="1" />
@@ -131,11 +131,11 @@
       </Trigger>
       <Trigger Property="IsMouseOver" Value="true">
         <Setter TargetName="checkBoxBorder" Property="BorderBrush" 
-                Value="{theme:ThemeResource ResourceKey=CheckBoxMouseOverBorder}" />
+                Value="{theme:ThemeResource ResourceKey=MouseOverBorder}" />
         <Setter TargetName="ascArrow" Property="Stroke" 
-                Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
+                Value="{theme:ThemeResource ResourceKey=PressedBackground}" />
         <Setter TargetName="descArrow" Property="Stroke" 
-                Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBackground}" />
+                Value="{theme:ThemeResource ResourceKey=PressedBackground}" />
       </Trigger>
       <Trigger Property="IsEnabled" Value="false">
         <Setter TargetName="checkBoxBorder" Property="Opacity" 
@@ -147,7 +147,7 @@
       </Trigger>
       <Trigger Property="IsPressed" Value="true">
         <Setter TargetName="checkBoxBorder" Property="BorderBrush" 
-                Value="{theme:ThemeResource ResourceKey=CheckBoxPressedBorder}" />
+                Value="{theme:ThemeResource ResourceKey=PressedBorder}" />
         <Setter TargetName="ascArrow" Property="Stroke" 
                 Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
         <Setter TargetName="descArrow" Property="Stroke" 
@@ -173,18 +173,18 @@
     <Setter Property="FontFamily" Value="Segoe UI Semibold" />
     <Setter Property="FontWeight" Value="Medium" />
     <Setter Property="FontSize" Value="14" />
-    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxBackground}" />
-    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=CheckBoxIcon}" />
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=CheckBoxForeground}" />
+    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=Background}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=IconForeground}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=Foreground}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="Template" Value="{DynamicResource CheckBoxTemplate}" />
   </Style>
 
 
   <Style x:Key="SortableHeaderCheck" TargetType="{x:Type CheckBox}">
-    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=CheckBoxBackground}" />
+    <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
     <Setter Property="BorderBrush" Value="{x:Null}" />
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=CheckBoxIcon}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=IconForeground}" />
     <Setter Property="Template" Value="{DynamicResource SortBoxTemplate}" />
     <Setter Property="IsThreeState" Value="True"/>
   </Style>
@@ -197,7 +197,7 @@
     <Setter Property="Background" 
             Value="{theme:ThemeResource ResourceKey=MinContrast}" />
     <Setter Property="BorderBrush" 
-            Value="{theme:ThemeResource ResourceKey=ComplementColor}" />
+            Value="{theme:ThemeResource ResourceKey=Complement}" />
     <Setter Property="Foreground" 
             Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
     <Setter Property="BorderThickness" Value="1" />
@@ -231,7 +231,7 @@
                            Width="12"
                            Height="12"
                            Margin="2"
-                           Fill="{theme:ThemeResource ResourceKey=ComplementColor}"
+                           Fill="{theme:ThemeResource ResourceKey=Complement}"
                            Opacity="0" />
               </Grid>
             </Border>

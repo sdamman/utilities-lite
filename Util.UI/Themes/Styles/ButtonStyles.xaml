@@ -560,7 +560,7 @@
                     Fill="{theme:ThemeResource ResourceKey=TransparentBackground}"/>
               <gui:XamlImage x:Name="glyph"
                              Template="{DynamicResource Icon_Copy}"
-                             Foreground="{theme:ThemeResource ResourceKey=ComplementColor}"/>
+                             Foreground="{theme:ThemeResource ResourceKey=Complement}"/>
             </Canvas>
           </Viewbox>
           <ControlTemplate.Triggers>
@@ -568,13 +568,13 @@
               <Setter TargetName="glyph" Property="Foreground" 
                       Value="{theme:ThemeResource ResourceKey=MaxContrast}" />
               <Setter TargetName="bg" Property="Fill" 
-                      Value="{theme:ThemeResource ResourceKey=ComplementColor}" />
+                      Value="{theme:ThemeResource ResourceKey=Complement}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
               <Setter TargetName="glyph" Property="Foreground" 
-                      Value="{theme:ThemeResource ResourceKey=ComplementColor}" />
+                      Value="{theme:ThemeResource ResourceKey=Complement}" />
               <Setter TargetName="bg" Property="Fill" 
-                      Value="{theme:ThemeResource ResourceKey=ComplementColor}" />
+                      Value="{theme:ThemeResource ResourceKey=Complement}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
               <Setter TargetName="glyph" Property="Opacity" Value="0.4" />

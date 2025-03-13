@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Util.UI.Windows"
+        xmlns:uc="clr-namespace:Util.UI.UserControls"
         Style="{DynamicResource WindowStyleEnglish}"
         mc:Ignorable="d"
         Title="Main Window" Height="450" Width="800">
   
-  <Grid>
-    <Grid.Resources>
+    <Window.Resources>
       <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource bodyCopy}">
         <Setter Property="Margin" Value="4"/>
         <Setter Property="Padding" Value="4,0"/>
@@ -19,26 +19,16 @@
       </Style>
       <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BlueButtonStyle}">
       </Style>
-    </Grid.Resources>
-    <StackPanel>
-      <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding OriginalFile}"
-                   MinWidth="300"/>
-        <Button Content="..." 
-                Click="Click_SelectFile"/>
-      </StackPanel>
-      <StackPanel Orientation="Horizontal" Margin="0,10">
-        <TextBlock Text="Line break after:"/>
-        <TextBox Text="{Binding EndText}"/>
-      </StackPanel>
-      <Button Content="Break Lines" HorizontalAlignment="Left" 
-              Command="{Binding BreakLinesCommand}"/>
-      <ScrollViewer VerticalScrollBarVisibility="Auto"
-                    MaxHeight="300"
-                    Margin="20">
-        <TextBlock Text="{Binding FileContentsNew}"
-                   TextWrapping="Wrap"/>
-      </ScrollViewer>
-    </StackPanel>
-  </Grid>
+    </Window.Resources>
+
+  <TabControl Style="{StaticResource TabControlStyle}">
+    <TabItem Header="Break Lines"
+             Style="{StaticResource TabItemStyle}">
+      <uc:BreakLines/>
+    </TabItem>
+    <TabItem Header="Round Numbers"
+             Style="{StaticResource TabItemStyle}">
+      <uc:RoundNumbers/>
+    </TabItem>
+  </TabControl>
 </Window>

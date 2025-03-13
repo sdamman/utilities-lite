@@ -11,11 +11,13 @@ namespace Util.VM
     // --- Command Declarations ---
     // #####################
     public IRelayCommand BreakLinesCommand { get; }
+    public IRelayCommand RoundDigitsCommand { get; }
 
     public ViewModelMain()
     {
       // --- Command Instantiation ---
       BreakLinesCommand = new RelayCommand(BreakLines);
+      RoundDigitsCommand = new RelayCommand(RoundDigits);
     }
 
     // #####################
@@ -32,6 +34,12 @@ namespace Util.VM
     private string fileContentsOriginal = null;
     [ObservableProperty]
     private string fileContentsNew = null;
+    [ObservableProperty]
+    private string inputText = null;
+    [ObservableProperty]
+    private string outputText = null;
+    [ObservableProperty]
+    private string numberOfDigits = "4";
 
 
 
@@ -39,21 +47,18 @@ namespace Util.VM
     // --- Methods ---
     // #####################
 
-    public void GetFile(string fileName)
+    public void GetFile()
     {
-      OriginalFile = fileName;
-      string fileOnly = Path.GetFileNameWithoutExtension(fileName);
-      string tempPath = Path.GetDirectoryName(fileName);
-      NewFile = Path.Combine(tempPath, fileOnly + "-updated" + Path.GetExtension(fileName));
+      string fileOnly = Path.GetFileNameWithoutExtension(OriginalFile);
+      string tempPath = Path.GetDirectoryName(OriginalFile);
+      NewFile = Path.Combine(tempPath, fileOnly + "-updated" + Path.GetExtension(OriginalFile));
 
-      using (StreamReader sr = new StreamReader(OriginalFile))
-      {
-        string line = sr.ReadLine();
-        StringBuilder sb = new(line);
-        while (!sr.EndOfStream)
-          sb.Append(sr.ReadLine());
-        FileContentsOriginal = sb.ToString();
-      }
+      using StreamReader sr = new(OriginalFile);
+      string line = sr.ReadLine();
+      StringBuilder sb = new(line);
+      while (!sr.EndOfStream)
+        sb.Append(sr.ReadLine());
+      FileContentsOriginal = sb.ToString();
 
     }
 
@@ -70,6 +75,24 @@ namespace Util.VM
         }
       }
       FileContentsNew = sb.ToString();
+    }
+
+    public void RoundDigits()
+    {
+      if (string.IsNullOrEmpty(InputText)) return;
+      char splitChar = ' ';
+      int digits = Convert.ToInt32(NumberOfDigits);
+      string[] inputStrings = InputText.Split(splitChar);
+      StringBuilder sb = new();
+      foreach (string inputString in inputStrings)
+      {
+        if (double.TryParse(inputString, out double outNum))
+          sb.Append(Math.Round(outNum, digits));
+        else
+          sb.Append(inputString);
+        sb.Append(splitChar);
+      }
+      OutputText = sb.ToString();
     }
 
   }

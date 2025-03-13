@@ -43,8 +43,8 @@
   </ControlTemplate>
 
   <Style x:Key="GroupBoxStyle" TargetType="{x:Type GroupBox}">
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=GroupBoxFont}" />
-    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=GroupBoxTopBar}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
     <Setter Property="SnapsToDevicePixels" Value="False" />
     <Setter Property="BorderThickness" Value="0,0,0,1" />
     <Setter Property="Padding" Value="8,16,8,8" />
@@ -52,8 +52,8 @@
   </Style>
 
   <Style x:Key="GroupBoxBoldStyle" TargetType="{x:Type GroupBox}">
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=GroupBoxBoldFont}" />
-    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=GroupBoxBoldTopBar}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
     <Setter Property="SnapsToDevicePixels" Value="False" />
     <Setter Property="BorderThickness" Value="0,0,0,1" />
     <Setter Property="Padding" Value="8,16,8,8" />
@@ -61,8 +61,8 @@
   </Style>
 
   <Style x:Key="GroupBoxFunContrastStyle" TargetType="{x:Type GroupBox}">
-    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=GroupBoxFunContrastFont}" />
-    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=GroupBoxFunContrastTopBar}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
+    <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
     <Setter Property="SnapsToDevicePixels" Value="False" />
     <Setter Property="BorderThickness" Value="0,0,0,1" />
     <Setter Property="Padding" Value="8,16,8,8" />

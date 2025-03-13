@@ -22,16 +22,15 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="100">
                     <Grid x:Name="markGrid" Margin="2">
-                        <Ellipse
+                        <Ellipse Margin="1"
                             x:Name="optionMark"
-                            MinWidth="15"
-                            MinHeight="15"
-                            Fill="{theme:ThemeResource ResourceKey=IconForeground}"
+                            MinWidth="12"
+                            MinHeight="12"
+                            Fill="{theme:ThemeResource ResourceKey=ContentBorder}"
                             Opacity="0" />
                     </Grid>
                 </Border>
                 <ContentPresenter
-
                     x:Name="contentPresenter"
                     Grid.Column="1"
                     Margin="{TemplateBinding Padding}"
@@ -43,13 +42,15 @@
             </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasContent" Value="true">
-
                 <Setter Property="Padding" Value="4,-1,0,0" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="radioButtonBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=RadioButtonMouseOverBackground}" />
-                <Setter TargetName="radioButtonBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=RadioButtonMouseOverBorder}" />
-                <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=RadioButtonMouseOverForeground}" />
+                <Setter TargetName="radioButtonBorder" Property="Background" 
+                        Value="{theme:ThemeResource ResourceKey=MouseOverBackground}" />
+                <Setter TargetName="radioButtonBorder" Property="BorderBrush" 
+                        Value="{theme:ThemeResource ResourceKey=MouseOverBackground}" />
+                <Setter TargetName="optionMark" Property="Fill" 
+                        Value="{x:Null}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter TargetName="radioButtonBorder" Property="Opacity" Value="0.4" />
@@ -57,9 +58,12 @@
                 <Setter TargetName="optionMark" Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsPressed" Value="true">
-                <Setter TargetName="radioButtonBorder" Property="Background" Value="{theme:ThemeResource ResourceKey=RadioButtonPressedBackground}" />
-                <Setter TargetName="radioButtonBorder" Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=RadioButtonPressedBorder}" />
-                <Setter TargetName="optionMark" Property="Fill" Value="{theme:ThemeResource ResourceKey=RadioButtonPressedForeground}" />
+                <Setter TargetName="radioButtonBorder" Property="Background" 
+                        Value="{theme:ThemeResource ResourceKey=PressedBackground}" />
+                <Setter TargetName="radioButtonBorder" Property="BorderBrush" 
+                        Value="{theme:ThemeResource ResourceKey=PressedBorder}" />
+                <Setter TargetName="optionMark" Property="Fill" 
+                        Value="{x:Null}" />
             </Trigger>
             <Trigger Property="IsChecked" Value="true">
                 <Setter TargetName="optionMark" Property="Opacity" Value="1" />
@@ -75,9 +79,12 @@
 
     <Style x:Key="RadioButtonStyle" TargetType="{x:Type RadioButton}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}" />
-        <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=RadioButtonBackground}" />
-        <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=RadioButtonBorder}" />
-        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=RadioButtonForeground}" />
+        <Setter Property="Background" 
+                Value="{theme:ThemeResource ResourceKey=ContentBackground}" />
+        <Setter Property="BorderBrush" 
+                Value="{theme:ThemeResource ResourceKey=ContentBorder}" />
+        <Setter Property="Foreground" 
+                Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
         <Setter Property="FontFamily" Value="Segoe UI Semibold" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="BorderThickness" Value="1" />

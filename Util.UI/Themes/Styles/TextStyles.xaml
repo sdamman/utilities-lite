@@ -24,7 +24,7 @@
         TargetType="{x:Type TextBlock}">
         <Setter Property="TextBlock.FontSize" Value="45" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=Heading1}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
 
     </Style>
 
@@ -35,7 +35,7 @@
         TargetType="{x:Type TextBlock}">
         <Setter Property="TextBlock.FontSize" Value="25" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=Heading2}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
 
     </Style>
 
@@ -46,7 +46,7 @@
         TargetType="{x:Type TextBlock}">
         <Setter Property="TextBlock.FontSize" Value="18" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=Heading3}" />
+    <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=ContentForeground}" />
 
     </Style>
 
@@ -69,7 +69,7 @@
         BasedOn="{StaticResource Text_Base}"
         TargetType="{x:Type Hyperlink}">
         <Setter Property="TextBlock.FontSize" Value="14" />
-        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=Link}" />
+        <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=BoldHighlight}" />
         <Setter Property="FontWeight" Value="Bold" />
 
     </Style>

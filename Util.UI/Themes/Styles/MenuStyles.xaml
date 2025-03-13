@@ -212,7 +212,7 @@
                Placement="Bottom" 
                PlacementTarget="{Binding ElementName=templateRoot}">
           <Border x:Name="SubMenuBorder" 
-                  Background="{theme:ThemeResource ResourceKey=ComplementColor}" 
+                  Background="{theme:ThemeResource ResourceKey=Complement}" 
                   BorderBrush="{theme:ThemeResource ResourceKey=BoldHighlight}" 
                   BorderThickness="1" Padding="2">
             <ScrollViewer x:Name="SubMenuScrollViewer" 
@@ -430,7 +430,7 @@
                PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}" 
                VerticalOffset="-3">
           <Border x:Name="SubMenuBorder" 
-                  Background="{theme:ThemeResource ResourceKey=ComplementColor}" 
+                  Background="{theme:ThemeResource ResourceKey=Complement}" 
                   BorderBrush="{theme:ThemeResource ResourceKey=BoldHighlight}" 
                   BorderThickness="1" 
                   Padding="2">
@@ -522,7 +522,7 @@
         <Setter Property="Padding" Value="6,0"/>
       </Trigger>
       <Trigger Property="Role" Value="TopLevelItem">
-        <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=ComplementColor}"/>
+        <Setter Property="Background" Value="{theme:ThemeResource ResourceKey=Complement}"/>
         <Setter Property="BorderBrush" Value="{theme:ThemeResource ResourceKey=BoldHighlight}"/>
         <Setter Property="Foreground" Value="{theme:ThemeResource ResourceKey=MinContrast}"/>
         <Setter Property="Template" 
@@ -550,7 +550,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type Menu}">
-          <Border Background="{theme:ThemeResource ResourceKey=ComplementColor}" 
+          <Border Background="{theme:ThemeResource ResourceKey=Complement}" 
                   d:Background="{StaticResource brushUranianBlue}"
                   BorderBrush="{theme:ThemeResource ResourceKey=MutedAccent}"
                   d:BorderBrush="{StaticResource brushCombineBlue}"

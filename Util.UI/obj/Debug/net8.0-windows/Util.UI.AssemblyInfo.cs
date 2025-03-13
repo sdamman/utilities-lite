@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("©2024")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Empty sample project utilizing MVVM design pattern and ALMACO theme.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+9baf362bc98a2cf1a180569e950dd921d808619d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Util.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Util.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]

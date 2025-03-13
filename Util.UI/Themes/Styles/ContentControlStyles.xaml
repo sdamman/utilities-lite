@@ -19,7 +19,7 @@
                               TextBlock.FontFamily="Segoe UI Semibold"
                               TextBlock.FontSize="18"
                               TextBlock.FontWeight="Bold"
-                              TextBlock.Foreground="{theme:ThemeResource ResourceKey=Heading3}"/>
+                              TextBlock.Foreground="{theme:ThemeResource ResourceKey=ContentForeground}"/>
           </Border>
           <ControlTemplate.Triggers>
             <Trigger Property="Visibility" Value="Visible">
