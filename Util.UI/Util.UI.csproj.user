@@ -7,6 +7,14 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="UserControls\BreakLines.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\RoundNumbers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Themes\ALMACO.UI.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -68,6 +76,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\UserControls\ToggleButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\BreakLines.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\RoundNumbers.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\WndMain.xaml">
